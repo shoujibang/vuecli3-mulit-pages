@@ -6,7 +6,7 @@ const path = require("path");
 const glob = require('glob');
 const pagesPath = path.resolve(__dirname,"./src/pages");
 const resolve = dir =>path.join(__dirname,'./',dir);
-
+const webpack = require('webpack')
 
 
 const getPages = function(pages={}){
@@ -68,8 +68,18 @@ module.exports = {
     },
     //webpack配置
     configureWebpack:config =>{
+        let plugins = [
+            new webpack.ProvidePlugin({
+                $:"jquery",    
+                jQuery:"jquery",    
+                "windows.jQuery":"jquery"    
+              })
+        ];
+
+
+        config.plugins = [...config.plugins,...plugins];
         console.log("-----------config:")
-        console.log(config.rules)
+        console.log(config.plugins)
     },
     // pages:{
     //         index:{

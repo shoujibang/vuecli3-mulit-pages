@@ -3,6 +3,7 @@
     <div id="nav">
       登录页面
     </div>
+    
     <router-link :to="{name:'home',params: { userId: 123 }}">返回首页</router-link>
     <router-view/>
   </div>
