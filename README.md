@@ -1,4 +1,4 @@
-# vuecli3-mulit-pages2
+# vuecli3-mulit-pages
 
 ## Project setup
 ```
