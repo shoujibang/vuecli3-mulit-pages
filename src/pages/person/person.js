@@ -3,12 +3,10 @@ import Vue from 'vue'
 import App from './person.vue'
 import router from '../../router'
 import store from '../../store'
-import $ from 'jquery'; //jquery
-Vue.prototype.$ = $;
-import ElementUI from 'element-ui'; //引入全部ElementUI组件
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
 import extFilter from "filter" //扩展filter
+import Element from 'element-ui'
+import "element-ui/lib/theme-chalk/index.css";
+Vue.use(Element)
 Object.keys(extFilter).forEach(key =>{
   Vue.filter(key,extFilter[key]);
 });

@@ -3,13 +3,18 @@
     <div id="nav">
       登录页面
     </div>
-    
     <router-link :to="{name:'home',params: { userId: 123 }}">返回首页</router-link>
     <router-view/>
   </div>
 </template>
-
+<script>
+import remjs from "util/rem";
+export default {
+  
+}
+</script>
 <style lang="less">
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

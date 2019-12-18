@@ -3,11 +3,17 @@ import Vue from 'vue'
 import App from './index.vue'
 import router from '../../router'
 import store from '../../store'
-import $ from 'jquery'; //jquery
-Vue.prototype.$ = $;
-import ElementUI from 'element-ui'; //引入全部ElementUI组件
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+import Element from 'element-ui'
+import axios from '../../../config/axios';
+import $ from 'jquery'
+import "element-ui/lib/theme-chalk/index.css";
+Vue.use(Element)
+import VHeader from 'components/VHeader'
+import Carousel from 'components/Carousel'
+import VFotter from 'components/VFotter'
+Vue.component(VHeader.name,VHeader);
+Vue.component(Carousel.name,Carousel);
+Vue.component(VFotter.name,VFotter);
 //扩展filter
 import extFilter from 'filter' 
 Object.keys(extFilter).forEach(key =>{

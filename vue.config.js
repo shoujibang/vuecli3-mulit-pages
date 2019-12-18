@@ -1,12 +1,18 @@
 //全局配置文件
 const config = require('./config/config');
+const webpack = require('webpack');
+
 // 打包页面配置
 const _ = require('lodash');
 const path = require("path");
 const glob = require('glob');
 const pagesPath = path.resolve(__dirname,"./src/pages");
 const resolve = dir =>path.join(__dirname,'./',dir);
-const webpack = require('webpack')
+/**
+ * 在客户端侧代码中注册环境变量
+ * process.env.VUE_APP_ICON:ICON路径
+ */
+process.env.VUE_APP_ICON = path.resolve(__dirname,"./src/assets/images/");
 
 
 const getPages = function(pages={}){
@@ -41,8 +47,22 @@ const getPages = function(pages={}){
     console.log("页面目录目录obj:",obj)
     return obj;
 }
-
+/**
+ * 
+    publicPath: process.env.NODE_ENV === 'production'
+ * 
+ * 默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上，
+ * 例如 https://www.my-app.com/。如果应用被部署在一个子路径上，
+ * 你就需要用这个选项指定这个子路径。例如，
+ * 如果你的应用被部署在 https://www.my-app.com/my-app/，
+ * 则设置 publicPath 为 /my-app/
+ */
+let baeeUrl = '/'
 module.exports = {
+    // baseUrl: '/',
+    // publicPath: process.env.NODE_ENV === 'production'
+    // ? baeeUrl
+    // : '/',
     devServer:{
         port:config.port || 80,  //配置端口
         open:config.open,//是否自动打开浏览器
@@ -70,16 +90,18 @@ module.exports = {
     configureWebpack:config =>{
         let plugins = [
             new webpack.ProvidePlugin({
-                $:"jquery",    
-                jQuery:"jquery",    
-                "windows.jQuery":"jquery"    
-              })
-        ];
 
-
-        config.plugins = [...config.plugins,...plugins];
+            $:"jquery",
+            
+            jQuery:"jquery",
+            
+            "windows.jQuery":"jquery"
+            
+            })
+        ]
+        config.plugins = [...config.plugins, ...plugins];
         console.log("-----------config:")
-        console.log(config.plugins)
+        console.log(config)
     },
     // pages:{
     //         index:{
