@@ -4,6 +4,9 @@ import App from './person.vue'
 import router from '../../router'
 import store from '../../store'
 import extFilter from "filter" //扩展filter
+import Element from 'element-ui'
+import "element-ui/lib/theme-chalk/index.css";
+Vue.use(Element)
 Object.keys(extFilter).forEach(key =>{
   Vue.filter(key,extFilter[key]);
 });

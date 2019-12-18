@@ -7,8 +7,14 @@
     <router-view/>
   </div>
 </template>
-
+<script>
+import remjs from "util/rem";
+export default {
+  
+}
+</script>
 <style lang="less">
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
