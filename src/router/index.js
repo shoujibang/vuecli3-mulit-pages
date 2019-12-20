@@ -22,7 +22,7 @@ const routes = [
     name: 'home',
     component: Home,
     meta:{
-      title:"产创云区块链平台"
+      title:"官网"
     },
     children:[...admin]
   },
