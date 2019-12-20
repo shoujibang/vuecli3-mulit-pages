@@ -7,8 +7,7 @@
         </div>
         <div class="fotter-box-bottom">
             <slot name="bottom">
-                Copyright @ 2012-2019 JDCloud.com 版权所有 京ICP备11041704号-31
-                京ICP证070359号
+                ddfasdfdsfasd
             </slot>
   
         </div>

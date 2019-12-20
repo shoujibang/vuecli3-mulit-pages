@@ -7,7 +7,7 @@
 module.exports = {
     port:80,
     open:true,
-    host:"cms.xjoycity.com",
+    // host:"",
     proxy:{
         "/api":{
             target:"http://localhost:4000",
