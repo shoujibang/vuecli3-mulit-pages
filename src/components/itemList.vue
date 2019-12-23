@@ -11,7 +11,7 @@ arg:data
 arg:typeLi 
 示意：渲染类型；
 值类型：Number；
-值：1(默认一行三列)，2一行两列，3图文标题;
+值：1(默认一行三列)，2一行两列，3图文标题,4左图右文，5上图下文图片抖动;
 
 
 -->
@@ -123,14 +123,13 @@ export default {
   }
   .column-three ul li{
     width: 360px;
-    box-sizing: border-box; 
-    
-    margin-right: 60px;
-       
+    box-sizing: border-box;     
+    margin-right: 60px;       
     border:1px solid rgba(238,238,238,1);
     border-bottom: none;
     position: relative;
     overflow: hidden;
+    
   }
   .column-three ul li:last-child{
     margin-right:-0.001px;
@@ -330,6 +329,9 @@ export default {
     justify-content: center;
      margin-bottom:20px;
      border:none;
+    flex-direction: column;
+    padding: 0 10px;
+    
    }
    .column-three .pic-three li .tit{
      margin-top:10px;
@@ -338,19 +340,40 @@ export default {
    .column-three .pic-three li:hover{
      border:none;
      box-shadow: none;
+     color: red !important;
+     img{
+       animation: shake 0.3s;
+     }
    }
+   @keyframes shake {
+          0% {
+            -webkit-transform: rotate(0deg);
+          }
+          25% {
+            -webkit-transform: rotate(8deg);
+          }
+          50% {
+            -webkit-transform: rotate(-8deg);
+          }
+          75% {
+            -webkit-transform: rotate(8deg);
+          }
+          100% {
+            -webkit-transform: rotate(-8deg);
+          }
+    }
    .column-three .pic-three li:last-child {
      margin-right:-0.001px;
    }
    .column-three .pic-three li .img-box{
-     width:49px;
-     height:49px;
-     margin-right:48px;
+     width:100px;
+     height:100px;
+    //  margin-right:48px;
    }
    .column-three .pic-three li .main-box{
      padding: 43px 0 46px 0;
      border:none;
-     width: 130px;
+    //  width: 130px;
    }
 .column-three .pic-three li .img-box img:hover{
     transform: none;

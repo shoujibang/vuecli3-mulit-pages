@@ -7,8 +7,16 @@ import axios from "axios";
 console.log("pppppppppppppppppppppppppp")
 //添加请求拦截器
 axios.interceptors.request.use(config =>{
+    let data = {};
+    data.token = "abcdwf123";
 
+    if(!config.data || JSON.stringify(config.data) === "{}"){
+        config.data = data;
+    }else{
 
+        Object.assign(config.data,data);
+    }
+    console.log(config)
 
     return config;
 },

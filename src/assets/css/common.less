@@ -1,0 +1,65 @@
+@blue: #3190e8;
+
+/**
+背景图片地址和大小
+@url 图片地址
+*/
+.co-bg(@url){
+    background-image: url(@url);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+/**
+    dom居中
+*/
+.co-dom-center{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.co-dom-center2(@width,@height){
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-left: -@width / 2;
+    margin-top: -@height / 2;
+}
+/**
+    图片缩放
+*/
+.co-img-scale{
+    
+   &:hover{
+       img{
+           transition: all 0.6s ease-in-out;
+           transform: scale(1.05);
+       }
+   } 
+}
+.co-img-scale2(@widht:200px,@height:200px){
+    width: @widht;
+    height: @height;
+    overflow: hidden;
+    img{
+        // transition: all 0.6s ease-in-out;
+        transition: all 0.8s ;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+     
+ }
+/**
+flex布局
+*/
+.co-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
