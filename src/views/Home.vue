@@ -1,8 +1,10 @@
 <template>
   <div class="home">    
+    <div class="test co-img-scale">
+      <img src="../assets/images/pc16.png" />
+    </div>
     <item-list  :typeLi="5" :data="listTwo"></item-list>
     <item-list  :typeLi="2" :data="list"></item-list>
-    
   </div>
 </template>
 
@@ -30,6 +32,7 @@ export default {
       // console.log(this.$axios)
       // this.$axios.get(`https://api.apiopen.top/getWangYiNews?page=2&count=4`).then(res =>{
         this.$axios.get(`devapi/getWangYiNews?page=2&count=4`).then(res =>{
+          console.log("res:",res);
           if(res.data.code === 200){
           console.log(res.data.result)
           res.data.result.forEach((item,index) => {
@@ -58,3 +61,14 @@ export default {
   },
 }
 </script>
+<style lang="less" scoped>
+
+
+  .home{
+    position: relative;
+    .test{      
+      color: @blue;
+      .co-img-scale2(350px,350px)
+    }
+  }
+</style>

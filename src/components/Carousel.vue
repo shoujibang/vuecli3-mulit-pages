@@ -160,8 +160,9 @@ export default {
       margin: 0 auto;
       display: flex;
       li{
-        // width: 301px;        
+        width: 100%;       
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         font-size:14px;
         height: 120px;

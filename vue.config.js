@@ -86,6 +86,12 @@ module.exports = {
 
         console.log(config.resolve.alias )
     },
+    pluginOptions:{
+        'style-resources-loader': {
+            preProcessor: 'less',
+            patterns: [resolve('src/assets/css/common.less')] // 引入全局样式变量
+          }
+    },
     //webpack配置
     configureWebpack:config =>{
         let plugins = [
