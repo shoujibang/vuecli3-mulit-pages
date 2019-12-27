@@ -1,17 +1,20 @@
 <template>
-  <div class="home">    
-    <div class="test co-img-scale">
+  <div class="home">  
+    <div  v-fixed-dom="{bottom:'20px',right:'0px'}" class="fixe-dom">顶部</div>  
+    <div class="test co-img-scale" :style="{color:colors}">
+      <p>{{tel | timeFilter}}</p>
+      <p>{{str}}</p>
+      <p>{{$t('home.logo')}}</p>
+      <p>{{$t('home.wellcom')}}</p>
       {{count}}
-      {{itemArr}}
-
-      <ul>
+      <!-- <ul>
         <li v-for="(item,index) in userInfor" :key="index">
           {{item}}
         </li>
-      </ul>
+      </ul> -->
       <div>
         <el-button @click="addFn" type="primary">加</el-button>
-        <el-button @click="removeFn">减</el-button>
+        <el-button @click="removeFn">减</el-button>        
       </div>
     </div>
     <item-list  :typeLi="5" :data="listTwo"></item-list>
@@ -27,7 +30,11 @@ export default {
   data() {
     return {
       list:[],
-      listTwo:[]
+      listTwo:[],
+      str:"",
+      colors:"",
+      tel:new Date(),
+      card:"6222600260001072666"
     }
   },
   components: {
@@ -45,8 +52,14 @@ export default {
     ])
   },
   mounted() {
+    this.$axios.get('/api/users').then(res =>{
+      console.log("resresresresresresresres",res)
+    })
     this.getList();
-    console.log("this.$store",this.$store)
+    this.str = this.$generateUUID();
+    console.log("this",this)
+    this.colors = this.$getRandomColor();
+    console.log("getRandomColor",this.colors)
     this.SET_USER_INFO_COOKIE({
       name:"guset",
       password:"guest"
@@ -55,6 +68,10 @@ export default {
     this.setList([11,12,13]);
   },
   methods: {
+    fndom(val){
+      // location.href = val;
+     alert("lllllll")
+    },
     ...mapActions(['setList']),
     addFn(){
       this.ADD_COUNT(2)
@@ -111,6 +128,13 @@ export default {
     .test{      
       color: @blue;
       text-align: center;
+      font-size: 34px;
+    }
+    .fixe-dom{
+      font-size: 20px;
+      padding: 10px;
+      cursor: pointer;
+   
     }
   }
 </style>

@@ -23,6 +23,10 @@ import * as types from './types';
 console.log("0000000000000000")
 console.log(types)
 export default {
+  //切换语言
+    [types.SET_LANG](state,lang){
+      state.lang = lang;
+    },
   //增加
     [types.ADD_COUNT](state,n){
       console.log(n);

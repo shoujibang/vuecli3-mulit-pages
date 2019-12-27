@@ -4,9 +4,19 @@ import App from './index.vue'
 import router from '../../router'
 import store from '../../store'
 import Element from 'element-ui'
+import i18n from '@/locale' //国际化
+import storage from '@/util/storage' //国际化
 import axios from '../../../config/axios';
 import $ from 'jquery'
 import "element-ui/lib/theme-chalk/index.css";
+import util from '@/util';
+console.log("utilutilutilutil",util)
+Object.keys(util).forEach(key =>{
+  console.log("keykeykeykey",key)
+  Vue.prototype[`$${key}`] = util[key];
+  // Vue.prototype.$key = util[key];
+  
+})
 
 
 Vue.use(Element)
@@ -16,6 +26,16 @@ import VFotter from 'components/VFotter'
 Vue.component(VHeader.name,VHeader);
 Vue.component(Carousel.name,Carousel);
 Vue.component(VFotter.name,VFotter);
+
+
+Object.keys(storage).forEach(key =>{
+  console.log("storagestoragestorage",key)
+  Vue.prototype[`$${key}`] = storage[key];
+
+});
+//集成mock服务开发环境才起作用
+import '@/mock'
+
 //扩展filter
 import extFilter from 'filter' 
 Object.keys(extFilter).forEach(key =>{
@@ -33,5 +53,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app')

@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import storage from '@/util/storage';
+import store from '@/store';
 import Home from '../views/Home.vue'
+import maoyan from '../views/maoyan.vue'
 import login from '../pages/login/login.vue'
 
 
@@ -25,6 +28,14 @@ const routes = [
       title:"官网"
     },
     children:[...admin]
+  },
+  {
+    path: '/maoyan',
+    name: 'maoyan',
+    component: maoyan,
+    meta:{
+      title:"电影搜索"
+    }
   },
   {
     path:'*',
@@ -70,7 +81,21 @@ const router = new VueRouter({
  * 
  * 这里可以处理title和登录验证信息
  */
+let lang = storage.getStorage("locale");
+console.log("router-lang:",lang)
+
 router.beforeEach((to,from,next) =>{
+  // if(lang){
+  //   store.commit('SET_LANG', lang);
+  // }
+  // //切换语言是更改路由通过vuerouter
+  // const routePath = from.path;
+  // if (store.state.lang === 'en-US' && routePath.indexOf(`/${store.state.lang}/`) === -1) {
+  //   return router.push({path: `/${store.state.lang}${routePath}`, query: from.query})
+  //   // return redirect({path: `/${store.state.lang}${routePath}`, query: route.query})
+  // }
+  // console.log("routePathroutePathroutePathroutePathroutePath",routePath);
+  // console.log("routePathroutePathroutePathroutePathroutePath",router);
   if(to.meta.title){
     document.title = to.meta.title;
   }

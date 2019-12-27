@@ -6,7 +6,7 @@
                     <div class="logo-box">
                         <img src="@/assets/images/logo.png" />
                     </div>
-                    <span>官网</span>
+                    <span>{{$t('home.logo')}}</span>
                 </div>
             </el-col>
             <el-col :span="20" :xs="20" :sm="20" :md="20"  :xl="20">
@@ -42,16 +42,20 @@
                 <span @click="exitFn">退出</span>
             </div>
             <div class="dom" v-else>
-                <router-link to="/user/login">登录</router-link>
-                <router-link to="/user/regiset">注册</router-link>
+                <router-link to="/user/login">{{$t('home.login')}}</router-link>
+                <router-link to="/user/regiset">{{$t('home.regist')}}</router-link>
                 <!-- <lang-switcher /> -->
+            <check-language></check-language>
             </div>
         </div>
         <slot></slot>
     </div> 
 </template>
 <script>
-import {mapState, mapMutations} from 'vuex'; //引入vuex
+//引入vuex
+import {mapState, mapMutations} from 'vuex'; 
+//语言切换组件
+import checkLanguage from 'components/checkLanguage' 
 export default {
     name:"VHeader",
     created() {
@@ -69,6 +73,10 @@ export default {
                 {
                     name:"控制台",
                     url:"/admin"
+                },
+                {
+                    name:"猫眼",
+                    url:"/maoyan"
                 },
                 {
                     name:"产品",
@@ -153,6 +161,9 @@ export default {
             ]
         }
     },
+    components:{
+        checkLanguage
+    },
     mounted() {
         // this.userName = this.$getCookie("username")
        
@@ -214,6 +225,7 @@ export default {
         font-size: 20px;
         display:flex;
         align-items: center;
+        line-height: 36px;
         margin-right: 864px;
         .logo-box{
             width: 29px;
@@ -230,6 +242,8 @@ export default {
         right: 45px;
         .dom{
             display: flex;
+            line-height:36px;
+            // align-items: center;
             // margin-right: pxTorem(10px);
             a{
                 margin-right: 10px;
@@ -246,6 +260,7 @@ export default {
     .header-box .nav-box ul .first-li{
         width: 100px;
         height: 36px;
+        line-height:36px;
         text-align: center;
         font-size: 14px;
         white-space: nowrap;
