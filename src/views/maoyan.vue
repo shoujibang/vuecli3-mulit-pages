@@ -1,6 +1,7 @@
 <template>
   <div class="mao-yan">
     <h1>电影搜索列表</h1>
+    <router-view></router-view>
   </div>
 </template>
 <script>

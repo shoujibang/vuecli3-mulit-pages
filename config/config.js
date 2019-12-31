@@ -9,12 +9,12 @@ module.exports = {
     open:true,
     // host:"",    
     proxy:{
-        "/api":{
-            target:"http://localhost:80",
+        "/mock":{
+            target:"http://10.12.234.165:80",
             secure: false, // 如果是https接口，需要配置这个参数為true
             changeOrigin: true, // 是否跨域
             pathRewrite: {
-                '^/api': '/'
+                '^/mock': '/'
               }
         },
         "/devapi":{

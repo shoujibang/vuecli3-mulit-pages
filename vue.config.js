@@ -1,6 +1,8 @@
 //全局配置文件
 const config = require('./config/config');
 const webpack = require('webpack');
+const isProduction = process.env.NODE_ENV === 'production';
+console.log("webpack11111",webpack)
 
 // 打包页面配置
 const _ = require('lodash');
@@ -13,6 +15,22 @@ const resolve = dir =>path.join(__dirname,'./',dir);
  * process.env.VUE_APP_ICON:ICON路径
  */
 process.env.VUE_APP_ICON = path.resolve(__dirname,"./src/assets/images/");
+// cdn资源
+const cdn = {
+    css: [],
+    js: [        
+        'https://xxx-cdn-path/vue-router.min.js',
+        'https://xxx-cdn-path/vuex.min.js',
+        'https://xxx-cdn-path/axios.min.js',
+    ]
+}
+//本地js
+const localJs = {
+    css: [],
+    js: [
+        resolve('src/assets/js/main.js'),        
+    ]
+}
 
 
 const getPages = function(pages={}){
@@ -100,8 +118,19 @@ module.exports = {
         .set('filter',resolve('src/filter'))
         .set('pages',resolve('src/pages'))
         .set('directive',resolve('src/directive'))
-        .set('util',resolve('src/util'))
-
+        .set('util',resolve('src/util'));
+        //生产环境注入cdn或js文件
+        if(isProduction){
+            // 修改插件选项
+            config.plugin('html')
+                .tap(args => {
+                    args[0].cdn = cdn;
+                    args[1].localJs = localJs;
+                    return args; /* 传递给 html-webpack-plugin's 构造函数的新参数 */
+                });
+                
+            }
+            console.log("args000000",config.plugin)
         console.log(config.resolve.alias )
     },
     // 第三方插件的选项

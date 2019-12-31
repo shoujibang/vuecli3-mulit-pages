@@ -52,7 +52,7 @@ export default {
     ])
   },
   mounted() {
-    this.$axios.get('/api/users').then(res =>{
+    this.$axios.get('/mock/ac').then(res =>{
       console.log("resresresresresresresres",res)
     })
     this.getList();
@@ -66,6 +66,7 @@ export default {
     });
     debugger;
     this.setList([11,12,13]);
+    console.log("this.$",this.$)
   },
   methods: {
     fndom(val){

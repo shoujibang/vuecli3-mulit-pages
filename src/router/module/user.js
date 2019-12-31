@@ -1,7 +1,7 @@
 export default [
     {
-        path:"/add",
-        name:"userAdd",
+        path:"/login",
+        name:"login",
         component:() => import('views/userAdd.vue')
     }
 ]

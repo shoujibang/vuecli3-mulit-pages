@@ -5,9 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>logo.png">
+    <!-- 使用本地资源的JS文件 -->
+    <% for (var i in htmlWebpackPlugin.options.localJs && htmlWebpackPlugin.options.localJs.js) { %>
+    <script src="<%= htmlWebpackPlugin.options.localJs.js[i] %>"></script>
+  <% } %>
     <title>page</title>
   </head>
   <body>
+  dfdsf
+     
     <%= process.env.VUE_APP_VERSION %>
     <noscript>
       <strong>We're sorry but page doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>

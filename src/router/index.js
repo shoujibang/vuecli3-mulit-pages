@@ -5,7 +5,7 @@ import store from '@/store';
 import Home from '../views/Home.vue'
 import maoyan from '../views/maoyan.vue'
 import login from '../pages/login/login.vue'
-
+// import layout from '@/pages/admin/layout';
 
 
 import admin from './module/admin';
@@ -26,8 +26,8 @@ const routes = [
     component: Home,
     meta:{
       title:"官网"
-    },
-    children:[...admin]
+    }
+    
   },
   {
     path: '/maoyan',
@@ -36,6 +36,15 @@ const routes = [
     meta:{
       title:"电影搜索"
     }
+    
+  },
+  {
+    path: '/admin',
+    name: 'layout',
+    component:() => import('@/pages/admin/layout'),
+    children:[
+      ...admin
+    ]
   },
   {
     path:'*',
@@ -47,8 +56,7 @@ const routes = [
     component:() => import ('pages/person/person'),
     meta:{
       title:"用户中心"
-    },
-    
+    },    
     children:[...user]
   },
   {
@@ -73,7 +81,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes
 })

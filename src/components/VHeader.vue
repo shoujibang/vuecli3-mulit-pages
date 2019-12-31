@@ -42,7 +42,7 @@
                 <span @click="exitFn">退出</span>
             </div>
             <div class="dom" v-else>
-                <router-link to="/user/login">{{$t('home.login')}}</router-link>
+                <router-link :to="{path:'/user'}">{{$t('home.login')}}</router-link>
                 <router-link to="/user/regiset">{{$t('home.regist')}}</router-link>
                 <!-- <lang-switcher /> -->
             <check-language></check-language>
@@ -150,7 +150,7 @@ export default {
                     url:"share"
                 },{
                     name:"白皮书",
-                    url:""
+                    url:"/user"
                 },{
                     name:"API",
                     url:"https://www.apiopen.top/api.html"
@@ -187,7 +187,21 @@ export default {
                 window.open(url);
                 return;
             }
+            debugger;
             this.$router.push(url)
+            // if(url.indexOf("admin") > 0){
+            //     let routeData = this.$router.resolve({
+            //         path: url,
+            //         // query: {
+            //             //     id: 1
+            //         // }
+            //     });
+                
+            //     window.open(routeData.href, '_blank');
+            // }else{
+
+            //     this.$router.push(url)
+            // }
         },
         menuUp(index){
             this.isMenu = index;

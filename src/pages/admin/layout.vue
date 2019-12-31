@@ -1,18 +1,36 @@
 <template>
-  <div id="app">
-    <v-header v-if="!$route.meta.isShow">
-        <carousel :cdataSub="cdataSub" isFixed :carouselHei="560" :data="cdata" />    
+  <div id="app" class="admin-layout">
+    <v-header style="background: #2e313b;">       
     </v-header>
-    
-    <!-- <a href="product.html">product</a> -->
-    <router-view/>
-    <v-fotter v-if="!$route.meta.isShow"></v-fotter>
+    <el-row :gutter="20">
+      <el-col :span="3">
+        <home-left>
+
+        </home-left>      
+      </el-col>
+      
+      <el-col :span="21">
+   
+          
+          <router-view></router-view>
+        <!-- <homeright>
+        </homeright> -->
+      </el-col>
+    </el-row>
+    <v-fotter isShow>
+
+    </v-fotter>
   </div>
 </template>
 <script>
 import remjs from "util/rem";
-
+import homeLeft from 'views/homeLeft'
+import homeright from 'views/homeright'
 export default {
+  components:{
+    homeLeft,
+    homeright
+  },
   data(){
     return {
       cdataSub:[
@@ -80,26 +98,9 @@ cdata:[{
 }
 </script>
 <style lang="less">
-@import "../../assets/css/reset.less";
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 18px;
-  font-size: 18px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  @import "../../assets/css/reset.less";
+  .admin-layout{
+    font-size: 20px;
+    min-height: 600px;
   }
-}
 </style>

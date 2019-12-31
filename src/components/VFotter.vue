@@ -7,9 +7,8 @@
         </div>
         <div class="fotter-box-bottom">
             <slot name="bottom">
-                ddfasdfdsfasd
-            </slot>
-  
+                版权所有
+            </slot>  
         </div>
     </div> 
 </template>

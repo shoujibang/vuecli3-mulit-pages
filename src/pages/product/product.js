@@ -1,6 +1,6 @@
 
 import Vue from 'vue'
-import App from './index.vue'
+import App from './layout.vue'
 import router from '../../router'
 import store from '../../store'
 import Element from 'element-ui'
@@ -46,7 +46,7 @@ Object.keys(extFilter).forEach(key =>{
   Vue.filter(key,extFilter[key]);
 });
 //扩展指令
-import extDirective from '@/directive/index'
+import extDirective from '@/directive'
 
 Object.keys(extDirective).forEach(key =>{
   Vue.directive(key,extDirective[key]());
