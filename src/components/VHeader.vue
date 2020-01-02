@@ -42,7 +42,8 @@
                 <span @click="exitFn">退出</span>
             </div>
             <div class="dom" v-else>
-                <router-link :to="{path:'/user'}">{{$t('home.login')}}</router-link>
+                <a href="person.html" >{{$t('home.login')}}</a>
+                <!-- <span @click="loginFn">{{$t('home.login')}}</span> -->
                 <router-link to="/user/regiset">{{$t('home.regist')}}</router-link>
                 <!-- <lang-switcher /> -->
             <check-language></check-language>
@@ -173,11 +174,16 @@ export default {
         ...mapMutations([
             'noLoginStatus'
         ]),
+        loginFn(){
+            // :to="{path:'/users'}"
+            this.$router.push("users")
+        },
          exitFn(){
             // this.$delCookie('username');
             // this.userName = "";
             // this.noLoginStatus()
             // this.$router.push("/")
+            
         },
         pushRoute(e,url){
             if(!url) return;

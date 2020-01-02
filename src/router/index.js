@@ -51,13 +51,13 @@ const routes = [
     component:() => import('views/404.vue')
   },
   {
-    path:"/user",
+    path:"/users",
     name:user,
     component:() => import ('pages/person/person'),
     meta:{
-      title:"用户中心"
+      title:"登录"
     },    
-    children:[...user]
+    // children:[...user]
   },
   {
     path: '/logins',
@@ -81,8 +81,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  // mode: 'history',
-  base: process.env.BASE_URL,
+  mode: 'history',
+  // base: process.env.BASE_URL,
   routes
 })
 /**

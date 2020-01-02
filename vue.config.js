@@ -15,15 +15,8 @@ const resolve = dir =>path.join(__dirname,'./',dir);
  * process.env.VUE_APP_ICON:ICON路径
  */
 process.env.VUE_APP_ICON = path.resolve(__dirname,"./src/assets/images/");
-// cdn资源
-const cdn = {
-    css: [],
-    js: [        
-        'https://xxx-cdn-path/vue-router.min.js',
-        'https://xxx-cdn-path/vuex.min.js',
-        'https://xxx-cdn-path/axios.min.js',
-    ]
-}
+process.env.VUE_APP_JS = path.resolve(__dirname,"./src/assets");
+
 //本地js
 const localJs = {
     css: [],
@@ -120,17 +113,27 @@ module.exports = {
         .set('directive',resolve('src/directive'))
         .set('util',resolve('src/util'));
         //生产环境注入cdn或js文件
-        if(isProduction){
+        if(!isProduction){
+            // cdn资源
+        const cdn = {
+            css: [],
+            js: [        
+                'https://xxx-cdn-path/vue-router.min.js',
+                'https://xxx-cdn-path/vuex.min.js',
+                'https://xxx-cdn-path/axios.min.js',
+            ]
+        }
+        console.log("args000000",cdn)
             // 修改插件选项
-            config.plugin('html')
-                .tap(args => {
-                    args[0].cdn = cdn;
-                    args[1].localJs = localJs;
-                    return args; /* 传递给 html-webpack-plugin's 构造函数的新参数 */
-                });
+            // config.plugin('html')
+            //     .tap(args => {
+            //         // args[0].cdn = cdn;
+                    
+            //         return args /* 传递给 html-webpack-plugin's 构造函数的新参数 */
+            //     });
+            
                 
             }
-            console.log("args000000",config.plugin)
         console.log(config.resolve.alias )
     },
     // 第三方插件的选项

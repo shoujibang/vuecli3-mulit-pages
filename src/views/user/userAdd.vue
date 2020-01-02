@@ -8,7 +8,7 @@
         <el-breadcrumb-item>活动详情</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <h1>开发管理</h1>
+    <h1>认证管理</h1>
   </div>
 </template>
 <style lang="less" scoped>
