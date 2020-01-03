@@ -51,20 +51,21 @@ const routes = [
     component:() => import('views/404.vue')
   },
   {
-    path:"/users",
-    name:user,
+    path:"/lgoins",
+    name:'lgoins',
     component:() => import ('pages/person/person'),
     meta:{
-      title:"登录"
-    },    
-    // children:[...user]
+      title:"登录",
+      isShow:true
+    }
   },
   {
-    path: '/logins',
-    name: 'login',
-    component: login,
+    path:"/registpage",
+    name:'registpage',
+    component:() => import ('@/pages/regist/index'),
     meta:{
-      title:"登录页面"
+      title:"注册",
+      isShow:true
     }
   },
   {
@@ -82,7 +83,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  // base: process.env.BASE_URL,
+  base: process.env.BASE_URL,
   routes
 })
 /**

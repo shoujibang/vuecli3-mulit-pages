@@ -44,8 +44,9 @@
             <div class="dom" v-else>
                 <a href="person.html" >{{$t('home.login')}}</a>
                 <!-- <span @click="loginFn">{{$t('home.login')}}</span> -->
-                <router-link to="/user/regiset">{{$t('home.regist')}}</router-link>
-                <!-- <lang-switcher /> -->
+                <!-- <router-link :to="{path:'/lgoins'}">{{$t('home.login')}}</router-link> -->
+                <router-link :to="{path:'/registpage'}">{{$t('home.regist')}}</router-link>
+                
             <check-language></check-language>
             </div>
         </div>

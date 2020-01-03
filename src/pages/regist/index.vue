@@ -4,7 +4,7 @@
     <router-link :to="{name:'home',params: { userId: 123 }}">返回首页</router-link> -->
     <div id="canvas-frame" class="container"></div>
     <div class="login-box">
-      <h1>登录</h1>
+      <h1>注册</h1>
       <div class="form-box">
         <el-form :model="loginForm" status-icon :rules="loginRules" ref="loginForm" class="demo-ruleForm">
           <el-form-item label="密码" prop="pass">
@@ -13,16 +13,16 @@
           <el-form-item label="确认密码" prop="checkPass">
             <el-input type="password" v-model="loginForm.checkPass" autocomplete="off"></el-input>
           </el-form-item>          
-          <el-form-item>
+          <el-form-item class="oprite">
             <el-button type="primary" @click="submitForm('loginForm')">提交</el-button>
             <el-button @click="resetForm('loginForm')">重置</el-button>
           </el-form-item>
         </el-form>
-        <div class="regist" @click="registFn">
-        <!-- <div class="regist"> -->
+        <!-- <div class="regist" @click="registFn">
+        
           免费注册
-          <!-- <a href="regist.html">免费注册</a> -->
-        </div>
+          
+        </div> -->
       </div>
     </div>
       <router-view />
@@ -70,18 +70,17 @@ export default {
       window.onresize = function(){      
        that.$(".container").css("height",navigatorHei);
       }
-     
+      // location.href = location.href;
       this.init()
       this.animate()
       console.log("document.documentElement",document.documentElement)
     })
-
+    
   },
   methods: {
     registFn(){
       // alert("ll")
-      this.$router.push({path:'/registpage'})
-      
+      this.$router.push({path:'/registPage'})
       // this.$router.push("users")
      
     },
@@ -239,7 +238,7 @@ export default {
     .login-box:extend(.co-dom-center){
       // .co-dom-center2(600px,600px);
       width:500px;
-      height:500px;
+      height:550px;
       background: #fff;
       border-radius: 12px;
       padding: 20px;
@@ -255,6 +254,9 @@ export default {
         text-align: left;
         font-size: 22px;
         cursor: pointer;
+      }
+      .oprite{
+        margin-top: 100px;
       }
     }
   }
