@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div v-if="!$route.meta.isShow"  v-fixed-dom="{bottom:'20px',right:'0px'}" class="fixe-dom">顶部</div>  
     <v-header v-if="!$route.meta.isShow">
         <carousel :cdataSub="cdataSub" isFixed :carouselHei="560" :data="cdata" />    
     </v-header>
@@ -87,6 +88,12 @@ cdata:[{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  .fixe-dom{
+      font-size: 20px;
+      padding: 10px;
+      cursor: pointer;
+   
+    }
 }
 
 #nav {

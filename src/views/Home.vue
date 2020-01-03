@@ -1,6 +1,6 @@
 <template>
   <div class="home">  
-    <div  v-fixed-dom="{bottom:'20px',right:'0px'}" class="fixe-dom">顶部</div>  
+    
     <div class="test co-img-scale" :style="{color:colors}">
       <p>{{tel | timeFilter}}</p>
       <p>{{str}}</p>

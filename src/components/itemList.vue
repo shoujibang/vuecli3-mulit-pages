@@ -11,7 +11,7 @@ arg:data
 arg:typeLi 
 示意：渲染类型；
 值类型：Number；
-值：1(默认一行三列)，2一行两列，3图文标题,4左图右文，5上图下文图片抖动;
+值：1(默认一行三列)，2一行两列，3图文标题,4左图右文，5上图下文图片抖动,6一行显示;
 
 
 -->
@@ -83,7 +83,10 @@ export default {
           break; 
         case 5:
           this.$refs.typeUl.className = "pic-three";
-          break;  
+          break; 
+        case 6:
+          this.$refs.typeUl.className = "pic-six";
+          break; 
         default:
           break;
       }
@@ -379,6 +382,61 @@ export default {
     transform: none;
   }
 
+/**
+  6 一行显示
+*/
+.column-three .pic-six{
+     display:flex;
+     flex-flow:row;
+     flex-direction: column;
+    // justify-content: space-between;
+    
+   }
+   .column-three .pic-six li .main-box .desc{
+    line-height: 24px;
+    color: #646464;
+    font-size: 14px;
+  }
+   .column-three .pic-six li{
+     width:100%;
+     margin-right:0;
+     padding: 20px;
+     display: flex;
+     align-items: center;
+    // justify-content: center;
+     margin-bottom:20px;
+     border:none;
+     background:#fff;
+     border-radius: 10px;
+     box-shadow:0px 3px 19px 0px rgba(219,219,219,0.5);     
+     margin-bottom: 30px;
+   }
+   .column-three .pic-six li .tit{
+     margin-top:10px;
+     color: #323232;
+    font-size: 16px;
+    font-weight: bold;
+   }
+   .column-three .pic-six li:hover{
+     border:none;
+     box-shadow: none;
+   }
+   .column-three .pic-six li:last-child {
+     margin-right:-0.001px;
+   }
+   .column-three .pic-six li .img-box{
+     width:200px;
+     height:200px;
+     margin-right:48px;
+   }
+   .column-three .pic-six li .main-box{
+     padding: 43px 0 46px 0;
+     border:none;
+     width: 130px;
+   }
+.column-three .pic-six li .img-box img:hover{
+    transform: none;
+  }
 
 
 

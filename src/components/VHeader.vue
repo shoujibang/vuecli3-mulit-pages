@@ -77,7 +77,7 @@ export default {
                     url:"/admin"
                 },
                 {
-                    name:"猫眼",
+                    name:"资讯",
                     url:"/maoyan"
                 },
                 {

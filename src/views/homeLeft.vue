@@ -15,8 +15,8 @@
         <div v-for="(item,index) in menuDatas" :key="index" >
             <el-submenu v-if="item.children" :index="item.keys">
               <template slot="title">
-                <i :class="item.icon"></i>
-                <span slot="title">{{item.name}}</span>
+                <i class="icon-pad" :class="item.icon" ></i>
+                <span  slot="title">{{item.name}}</span>
               </template>
               <el-menu-item-group v-for="(values,index) in item.children" :key="index">
                 <!-- <template slot="title">{{values.groupName}}</template> -->
@@ -34,8 +34,8 @@
             </el-submenu>
            
               <el-menu-item v-else @click="routerPush(item.url)"  :index="item.keys">
-                <i :class="item.icon"></i>
-                <span slot="title">{{item.name}}</span>
+                <i class="icon-pad" :class="item.icon"></i>
+                <span  slot="title">{{item.name}}</span>
               </el-menu-item>
             
         </div>
@@ -190,5 +190,8 @@ export default {
 <style lang="less" scoped>
   .home-left{
     border-right: 1px solid#c3c3c3ed;
+    .icon-pad{
+      // padding-right: 30px;
+    }
   }
 </style>
