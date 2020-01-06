@@ -32,6 +32,7 @@ arg:typeLi
         </li>
         
       </ul>
+      <div class="loading" v-if="isLoading">加载更多</div>
   </div>
 </template>
 
@@ -56,8 +57,11 @@ export default {
       default:false
     },
     typeLi:{
-      type:Number
-      
+      type:Number      
+    },
+    isLoading:{
+      type:Boolean,
+      default:false
     }
   },
   methods: {
@@ -113,7 +117,9 @@ export default {
     margin:0 auto;
     font-size:16px;
     color: #7D818A;
-    
+    .loading{
+      cursor: pointer;
+    }
 
   }
   .column-three img{
