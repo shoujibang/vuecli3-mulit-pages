@@ -1,7 +1,7 @@
 export default [
     {
         path:"/",
-        name:"homeRight",
+        name:"homeright",
         component:() => import('@/views/homeright'),
         meta:{
             title:"后台管理系统",
