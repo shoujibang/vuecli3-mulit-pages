@@ -22,17 +22,36 @@ arg:carouselHei
         :autoplay="true"
         :interval="3000"
         arrow="never"
+        @change='changeCarousel'
         :style="{height:remHei + 'rem'}"
          >
         <el-carousel-item
            class="el-carousel-item"
           :style="{backgroundImage: 'url(' + item.img + ')',height:remHei +'rem'}" 
           v-for="(item,index) in data" :key="index">
-          <h3 class="small">{{ item.title }}</h3>
-          <p>{{ item.desc }}</p>
-          <a href="" v-for="(val,index) in item.btn" :key="index">
-            {{val.name}}
-          </a>
+            <h3 class="small">{{ item.title }}</h3>
+            <p>{{ item.desc }}</p>
+            <a href="" v-for="(val,index) in item.btn" :key="index">
+                {{val.name}}
+            </a>
+          <!-- <transition v-if="preview === index"
+            name="top" 
+            :duration="{enter: 1500}" appear>
+            <h3 class="small">{{ item.title }}</h3>
+          </transition>
+          <transition v-if="preview === index"
+            name="top" 
+            :duration="{enter: 1500}" appear>
+            <p>{{ item.desc }}</p>
+          </transition>
+         
+          <transition v-if="preview === index"
+            name="top" 
+            :duration="{enter: 1500}" appear>
+            <a href="" v-for="(val,index) in item.btn" :key="index">
+              {{val.name}}
+            </a>
+          </transition> -->
         </el-carousel-item>
      </el-carousel>
     <div class="banner-list">
@@ -52,7 +71,8 @@ export default {
   name:"Carousel",
   data() {
     return {
-      aa:"ddd"
+      preview:0,
+      isChangeCarousel:false
     }
   },
   mounted() {
@@ -86,7 +106,22 @@ export default {
       return this.carouselHei / 100 ;
       }
   },
+  watch: {
+   
+  },
   methods: {
+    changeCarousel(current,preview){
+      this.preview = current
+      // if(current !== preview){
+      //   this.isChangeCarousel = true;
+      // }else{
+      //   this.isChangeCarousel = !this.isChangeCarousel;
+      // }
+     console.log(current,preview)
+        
+      
+      
+    },
     init(){
       debugger;
       let navHei = $(".nav-box").height() / 100;

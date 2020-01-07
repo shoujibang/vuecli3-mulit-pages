@@ -61,7 +61,19 @@ flex布局
     align-items: center;
     justify-content: center;
 }
-
+/**
+    top动效
+*/ 
+.top-enter-active {
+	transition: all  0.5s 0.5s ease;
+}
+.top-leave-active {
+	transition: all  0.5s cubic-bezier(0.25, 0.1, 0.25, 1);;
+}
+.top-enter, .btop-leave-to {
+	opacity: 0;
+	transform: translateY(100px);
+}
 
 
 
