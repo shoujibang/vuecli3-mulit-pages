@@ -25,7 +25,7 @@ arg:typeLi
           <div class="main-box">
             <h2 @click="urlRoute(item.path)" class="tit">{{item.title}}</h2>
             <p class="desc">{{item.desc}}</p>
-            <p class="time">{{item.time |timeFilter('YY-MM-DD')}}</p>
+            <p v-if="item.time" class="time">{{item.time |timeFilter('YY-MM-DD')}}</p>
           </div>
           <div ref="discover" class="discover">
               discover
