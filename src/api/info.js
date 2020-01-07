@@ -5,7 +5,7 @@ export function newsList(params){
     return axios.get('/devapi/getWangYiNews',{
         params:{
             page:params.page,
-            count:params.ount
+            count:params.count
         }
     });
 }

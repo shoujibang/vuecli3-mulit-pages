@@ -7,16 +7,19 @@ console.log("dataListdataListdataListdataList:",ListItem)
 
 export default {
     newsList({commit}, info){
+        console.log("infoinfoinfoinfoinfoinfoinfo",info)
         let {page,count} = info;
         return new Promise((resolve,reject) =>{
-            // newsList({page:page,count:count}).then(res =>{
-            //     const { data } = res;
-            //     // commit('NEWS_LISTDATA', data)
-            //     resolve(data);
-            // }).catch(error =>{
-            //     reject(error);
-            // })
-            resolve(ListItem);
+            newsList({page:page,count:count}).then(res =>{
+                const { data } = res;
+                
+                // commit('NEWS_LISTDATA', data)
+                resolve(res);
+                // resolve(data.result);
+            }).catch(error =>{
+                reject(error);
+            })
+            // resolve(ListItem);
         })
         commit(types.GET_LIST, info)
     }

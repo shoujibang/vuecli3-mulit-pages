@@ -25,6 +25,7 @@ arg:typeLi
           <div class="main-box">
             <h2 @click="urlRoute(item.path)" class="tit">{{item.title}}</h2>
             <p class="desc">{{item.desc}}</p>
+            <p class="time">{{item.time |timeFilter('YY-MM-DD')}}</p>
           </div>
           <div ref="discover" class="discover">
               discover
@@ -408,7 +409,7 @@ export default {
      margin-right:0;
      padding: 20px;
      display: flex;
-     align-items: center;
+    //  align-items: center;
     // justify-content: center;
      margin-bottom:20px;
      border:none;
@@ -422,6 +423,18 @@ export default {
      color: #323232;
     font-size: 16px;
     font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    
+   }
+   .column-three .pic-six li .time{
+     margin-top:10px;
+     color: #323232;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    right: 0;
    }
    .column-three .pic-six li:hover{
      border:none;
@@ -436,9 +449,14 @@ export default {
      margin-right:48px;
    }
    .column-three .pic-six li .main-box{
-     padding: 43px 0 46px 0;
+     width: 1000px;
+     padding: 0;
      border:none;
-     width: 130px;
+     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    //  width: 130px;
    }
 .column-three .pic-six li .img-box img:hover{
     transform: none;
